@@ -6,7 +6,6 @@ import { Products, NavBar } from './components'
 const App = () => {
     return (
         <div>
-            <h1>Changes</h1>
             <NavBar />
             <Products />
         </div>
