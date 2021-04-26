@@ -1,4 +1,5 @@
 import React from 'react'
+import { commerce } from './lib/commerce'
 
 import { Products, NavBar } from './components'
 
