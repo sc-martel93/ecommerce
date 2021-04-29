@@ -25,7 +25,6 @@ const Checkout = ({ cart }) => {
                 console.error(error)
             }
         }
-
         generateToken()
     }, [cart])
 
@@ -45,7 +44,7 @@ const Checkout = ({ cart }) => {
 
     const Form = () => activeStep === 0
         ? <AddressForm checkoutToken={checkoutToken} next={next} />
-        : <PaymentForm shippingData={shippingData} />
+        : <PaymentForm shippingData={shippingData} checkoutToken={checkoutToken} />
 
     return (
         <>
