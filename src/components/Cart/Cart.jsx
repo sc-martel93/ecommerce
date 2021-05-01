@@ -7,11 +7,11 @@ import CartItem from './CartItem/CartItem'
 
 const Cart = ({ cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart }) => {
     const classes = useStyles()
-
+    console.log(cart.line_items)
     const EmptyCart = () => (
         <Typography variant="subtitle1" className>
-            Your Cart is empty
-            <Link to="/" className={classes.link} >Start Shopping</Link>
+            Your Cart is empty,
+            <Link to="/" className={classes.link} > Start Shopping!</Link>
         </Typography>
     )
 
@@ -61,7 +61,7 @@ const Cart = ({ cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart
             <Typography className={classes.title} variant="h3" gutterBottom>
                 Your Shopping Cart
             </Typography>
-            { !cart.line_items ? <EmptyCart /> : <FilledCart />}
+            { cart.line_items.length === 0 ? <EmptyCart /> : <FilledCart />}
         </Container>
     )
 }
