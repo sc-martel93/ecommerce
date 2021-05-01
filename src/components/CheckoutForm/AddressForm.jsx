@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { InputLabel, Select, MenuItem, Button, Grid, Typography } from '@material-ui/core'
+import { InputLabel, Select, MenuItem, Button, Grid, Typography, CssBaseline } from '@material-ui/core'
 import { useForm, FormProvider } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 
@@ -56,6 +56,7 @@ const AddressForm = ({ checkoutToken, next }) => {
 
     return (
         <>
+            <CssBaseline />
             <Typography variant="h6" gutterBottom>Shipping address</Typography>
             <FormProvider {...methods}>
                 <form onSubmit={methods.handleSubmit((data) => next({ ...data, shippingCountry, shippingSubdivision, shippingOption }))}>
