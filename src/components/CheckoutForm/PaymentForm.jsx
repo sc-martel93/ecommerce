@@ -10,7 +10,7 @@ const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY)
 const PaymentForm = ({ shippingData, checkoutToken, nextStep, backStep, onCaptureCheckout }) => {
 
     const handleSubmit = async (event, elements, stripe) => {
-        event.prevent.default();
+        event.preventDefault();
 
         if (!stripe || !elements) return
 
