@@ -25,7 +25,7 @@ const AddressForm = ({ checkoutToken, next }) => {
         const { countries } = await commerce.services.localeListShippingCountries(checkoutTokenId)
 
         setShippingCountries(countries)
-        setShippingCountry(Object.keys(countries)[0])
+        setShippingCountry(Object.keys(countries)[10])
     }
 
     const fetchSubdivisions = async (countryCode) => {

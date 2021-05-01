@@ -61,7 +61,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
     if (error) {
         Confirmation = () => (
             <>
-                <Typography variant="h5">Error: {error} </Typography>
+                <Typography variant="h6">Error: {error} </Typography>
                 <br />
                 <Button component={Link} to="/" variant="outlined" type="button">
                     Back to Home
