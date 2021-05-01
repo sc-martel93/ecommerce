@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Paper, Stepper, Step, StepLabel, Typography, CircularProgress, Divider, Button } from '@material-ui/core'
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 
 import { commerce } from '../../../lib/commerce'
 
@@ -14,7 +14,9 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
     const [activeStep, setActiveStep] = useState(0)
     const [checkoutToken, setCheckoutToken] = useState(null)
     const [shippingData, setShippingData] = useState({})
+    const [isFinished, setIsFinished] = useState(false)
     const classes = useStyles()
+    const history = useHistory()
 
     useEffect(() => {
         const generateToken = async () => {
@@ -24,6 +26,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
                 setCheckoutToken(token)
             } catch (error) {
                 console.log(error)
+                history.pushState('/')
             }
         }
 
@@ -36,6 +39,12 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
     const next = (data) => {
         setShippingData(data)
         nextStep()
+    }
+
+    const timeout = () => {
+        setTimeout(() => {
+            setIsFinished(tru)
+        }, 3000)
     }
 
     let Confirmation = () => order.customer ? (
@@ -51,6 +60,19 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
             <Button component={Link} to="/" variant="outlined" type="button">
                 Back to Home
             </Button>
+        </>
+    ) : isFinised ? (
+        <>
+            <div>
+                <Typography variant="h5">
+                    Thank you for your purchase
+                </Typography>
+                <Divider className={classes.divider} />
+            </div>
+            <br />
+            <Button component={Link} to="/" variant="outlined" type="button">
+                Back to Home
+        </Button>
         </>
     ) : (
         <div className={classes.spinner}>
@@ -78,6 +100,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
             nextStep={nextStep}
             backStep={backStep}
             onCaptureCheckout={onCaptureCheckout}
+            timeout={timeout}
         />
 
     return (
