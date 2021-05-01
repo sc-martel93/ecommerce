@@ -25,8 +25,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
 
                 setCheckoutToken(token)
             } catch (error) {
-                console.log(error)
-                history.pushState('/')
+                if (activeStep !== steps.length) history.push('/')
             }
         }
 
@@ -43,7 +42,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
 
     const timeout = () => {
         setTimeout(() => {
-            setIsFinished(tru)
+            setIsFinished(true)
         }, 3000)
     }
 
@@ -61,7 +60,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
                 Back to Home
             </Button>
         </>
-    ) : isFinised ? (
+    ) : isFinished ? (
         <>
             <div>
                 <Typography variant="h5">
