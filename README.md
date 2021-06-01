@@ -4,6 +4,9 @@ Vintage eCommerce is a fully functional eCommerce webpage created with React, Co
 It is set to testing so no sales are actually made, but you can checkout with an order using the testing
 card number and you will receive an order confirmation email.
 
+### Link to Deployed App
+https://vintage-ecom.web.app/
+
 ### Test Credit Card Number
 
 --- 4242 4242 4242 4242  exp: 04/24 zip: 2424 --- 
